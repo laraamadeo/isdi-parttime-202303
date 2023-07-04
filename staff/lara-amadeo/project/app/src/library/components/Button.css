@@ -1,6 +1,7 @@
 .button-container-small {
     display: flex;
-    width: 100%;
+    width: auto;
+    height: fit-content;
     border-radius: 8px;
     padding: 8px 20px;
     justify-content: center;
@@ -11,7 +12,8 @@
 .button-container-extrasmall {
     display: flex;
     border-radius: 8px;
-    width: 100%;
+    width: auto;
+    height: fit-content;
     padding: 4px 16px;
     justify-content: center;
     align-items: center;
@@ -22,7 +24,8 @@
 .button-container-medium {
     display: flex;
     border-radius: 8px;
-    width: 100%;
+    width: auto;
+    height: fit-content;
     padding: 10px 20px;
     justify-content: center;
     align-items: center;

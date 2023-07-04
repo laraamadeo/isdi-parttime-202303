@@ -19,7 +19,7 @@
     align-self: stretch;
     border-radius: 12px;
     border: 1px solid var(--grey-200);
-    width: 100%;
+    width: auto;
 }
 
 .disabled {

@@ -1,5 +1,5 @@
 import "./Button.css"
-export default function Button({ category, size, icon, label }) {
+export default function Button({ category, size, icon, label, ...props }) {
 
     return <>
         <div className={`
@@ -8,7 +8,7 @@ export default function Button({ category, size, icon, label }) {
             ${size === "medium" && "button-container-medium"}
             ${category === "primary" && "primary"}
             ${category === "secondary" && "secondary"}
-            ${category === "critical" && "critical"}`}>
+            ${category === "critical" && "critical"}`} {...props}>
             {icon && <p className="body-text-bold">i</p>}
             <p className={`body-text-bold ${category === "critical" ? "label-critical" : "label"}`}>{label}</p>
         </div>
