@@ -15,6 +15,9 @@ import Loader from './library/modules/Loader'
 import Tabbar from './library/modules/Tabbar'
 import MealCard from './library/modules/MealCard'
 import Avatar from './library/components/Avatar'
+import Topbar from './library/modules/Topbar'
+import Header from './library/components/Header'
+import Logo from './library/components/Logo'
 
 
 import './style.css'
@@ -45,6 +48,7 @@ function App() {
           <TextField label={"Label text"} description={"Description text"} placeholder={"placeholder pedorro"} />
           <Button category={"critical"} size={"small"} icon={false} label={"Button label"} onClick={() => location.reload()} />
           <Chip label={"label"} state={"success"} />
+          <Header text={'Profile details'} />
           <DataItem label={"Label"} description={"Lorem ipsum dolor"} />
           <Container width={'382px'} height={'100px'} type={'border'}>
             <Button category={"critical"} size={"small"} icon={false} label={"Button label"} />
@@ -78,7 +82,8 @@ function App() {
           <Avatar size={'medium'} image={'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80'} />
           <Avatar size={'large'} image={'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80'} />
           <MealCard image={'https://saladswithanastasia.com/wp-content/uploads/2021/12/radish-green-salad-land1.jpg'} title={'Stewed beaf and baked pork'} description={'Lorem ipsum dolor sit amet. Sed tempore maxime eum tempora blanditiis et adipisci explicabo a corrupti corporis et sunt dicta aut velit mollitia!'} user={{ name: '@lauraGil', avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80' }} categories={['vegan', 'vegetarian', 'alergen', 'gluten']} />
-
+          <Topbar level={'second'} secondLevelLabel={'Profile'} />
+          <Logo />
 
 
         </div>}

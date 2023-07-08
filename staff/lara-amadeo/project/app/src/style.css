@@ -35,6 +35,11 @@
   --elevation-4: 0px 12px 24px -4px rgba(0, 0, 0, 0.15);
 }
 
+.icon-xs {
+  width: 20px;
+  height: 20px;
+}
+
 .icon-s {
   width: 24px;
   height: 24px;

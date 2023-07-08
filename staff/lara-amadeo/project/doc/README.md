@@ -39,11 +39,7 @@ Users
 - avatar (string)
 - availability(array of obj)
 - favs (oid array, refers to user id)
-- cart (oid, refer to meals)
-- ordered (array of obj(order id, status(string), array of meal id))
-- meals(oid of meals created)
 - reviews? (array of obj)
-
 - meals in cart (array of obj(meal id, status(string(in cart, pending to pick up, delivered, cancelled?))))
 
 Meals
