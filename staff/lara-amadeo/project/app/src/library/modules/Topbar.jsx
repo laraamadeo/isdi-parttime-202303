@@ -1,8 +1,8 @@
 import IconButton from '../components/IconButton'
-import { Bars3Icon, ChatBubbleLeftRightIcon, ArrowLeftIcon } from '../icons'
+import { Bars3Icon, ChatBubbleLeftRightIcon, ArrowLeftIcon, XMarkIcon } from '../icons'
 import './Topbar.css'
 
-export default function Topbar({ level, secondLevelLabel }) {
+export default function Topbar({ level, secondLevelLabel, back, close }) {
 
     return <>
         <div className='topbar-container'>
@@ -11,8 +11,9 @@ export default function Topbar({ level, secondLevelLabel }) {
                 <IconButton icon={<ChatBubbleLeftRightIcon className='icon-xs grey-700' />} type={'secondary'} />
             </>}
             {level === 'second' && <>
-                <IconButton icon={<ArrowLeftIcon className='icon-xs grey-700' />} type={'secondary'} />
-                <div className='topbar-label'><p className='small-text-bold grey-700'>{secondLevelLabel}</p></div>
+                {back && <IconButton icon={<ArrowLeftIcon className='icon-xs grey-700' />} type={'secondary'} />}
+                <div className={`${back && !close ? 'topbar-label-icon-left' : ''} ${!back && close ? 'topbar-label-icon-right' : ''} ${!back && !close ? 'topbar-label' : ''}`}><p className='small-text-bold grey-700'>{secondLevelLabel}</p></div>
+                {close && <IconButton icon={<XMarkIcon className='icon-xs grey-700' />} type={'secondary'} />}
             </>}
         </div>
 

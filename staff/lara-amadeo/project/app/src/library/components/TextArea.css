@@ -10,6 +10,11 @@
     resize: none;
 }
 
+.input-field-text-area::placeholder {
+    color: var(--grey-300);
+    font-size: 14px;
+}
+
 textarea {
     font-family: "Inter";
     font-size: 16px;

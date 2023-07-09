@@ -22,6 +22,10 @@
     width: auto;
 }
 
+.input-field::placeholder {
+    color: var(--grey-300);
+}
+
 .disabled {
     opacity: 40%;
 }

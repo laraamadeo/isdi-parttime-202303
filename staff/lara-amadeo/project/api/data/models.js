@@ -23,12 +23,25 @@ const user = new Schema({
         required: true,
         trim: true
     },
+    description: {
+        type: String,
+        default: "Start by writing a bit about yourself, this helps other users to get to know you"
+    },
+    tags: {
+        type: String,
+        default: "Write some tags about your lifestyle. p.e. Healthy, Sporty, Diet..."
+    },
     avatar: {
-        type: String
+        type: String,
+        default: "https://i.pinimg.com/550x/57/70/f0/5770f01a32c3c53e90ecda61483ccb08.jpg"
     },
     availability: {
         type: [Object],
         default: []
+    },
+    location: {
+        type: String,
+        default: "No location yet"
     },
     likedChefs: {
         type: [ObjectId],

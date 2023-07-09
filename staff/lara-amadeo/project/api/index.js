@@ -3,13 +3,28 @@ require('dotenv').config()
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const express = require('express')
+const { helloAPIHandler, registerUserHandler, authenticateUserHandler } = require('./handlers')
 
-const { helloAPIHandler } = require('./handlers')
+const mongoose = require('mongoose')
 
-const api = express()
+mongoose.connect(process.env.MONGODB_URL)
+    .then(() => {
+        const api = express()
 
-const jsonBodyParser = bodyParser.json()
+        const jsonBodyParser = bodyParser.json()
 
-api.get('/helloAPI', helloAPIHandler)
+        api.use(cors())
 
-api.post('/users', jsonBodyParser, registerUserHandler)
+        api.get('/helloAPI', helloAPIHandler)
+
+        //register user
+        api.post('/users', jsonBodyParser, registerUserHandler)
+
+        //authenticate user
+        api.post('/users/auth', jsonBodyParser, authenticateUserHandler)
+
+        api.listen(1234, () => console.log('server up'))
+    })
+    .catch(error => {
+        console.log(error)
+    })

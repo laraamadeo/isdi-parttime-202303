@@ -1,6 +1,6 @@
 import "./TextField.css"
 
-export default function TextField({ label, description, disabled, placeholder, ...props }) {
+export default function TextField({ label, type, name, description, disabled, placeholder, ...props }) {
 
     return <>
         <div className={`text-field-container ${disabled && "disabled"}`}{...props}>
@@ -8,7 +8,7 @@ export default function TextField({ label, description, disabled, placeholder, .
                 <p className='body-text grey-700'>{label}</p>
                 {description && <p className='small-text grey-500'>{description}</p>}
             </div>
-            <input type="text" name="input" placeholder={placeholder && placeholder} className="input-field"></input>
+            <input type={`${type}`} name={`${name}`} placeholder={placeholder && placeholder} className="input-field"></input>
         </div>
     </>
 }

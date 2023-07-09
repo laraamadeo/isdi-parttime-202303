@@ -1,6 +1,7 @@
 .button-container-small {
+    border: none;
     display: flex;
-    width: auto;
+    width: 100%;
     height: fit-content;
     border-radius: 8px;
     padding: 8px 20px;
@@ -10,9 +11,10 @@
 }
 
 .button-container-extrasmall {
+    border: none;
     display: flex;
     border-radius: 8px;
-    width: auto;
+    width: 100%;
     height: fit-content;
     padding: 4px 16px;
     justify-content: center;
@@ -22,9 +24,10 @@
 }
 
 .button-container-medium {
+    border: none;
     display: flex;
     border-radius: 8px;
-    width: auto;
+    width: 100%;
     height: fit-content;
     padding: 10px 20px;
     justify-content: center;

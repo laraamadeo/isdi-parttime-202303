@@ -1,5 +1,5 @@
 module.exports = {
     helloAPIHandler: require('./helloAPIhandler'),
-    //registerUserHandler: require('./registerUserHandler'),
-    //authenticateUserHandler: require('./authenticateUserHandler'),
+    registerUserHandler: require('./registerUserHandler'),
+    authenticateUserHandler: require('./authenticateUserHandler'),
 }
