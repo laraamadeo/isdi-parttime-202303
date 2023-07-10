@@ -3,9 +3,9 @@ const { User } = require('../data/models')
 
 module.exports = function registerAdditionalInfo(userId, description, tags, location, availability) {
 
-    validateText(username)
+    validateText(description)
+    validateText(location)
 
 
-    return User.updateOne({})
-
+    return User.updateOne({ _id: userId }, { description, tags, location, availability })
 }

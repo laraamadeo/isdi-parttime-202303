@@ -28,7 +28,7 @@ const user = new Schema({
         default: "Start by writing a bit about yourself, this helps other users to get to know you"
     },
     tags: {
-        type: String,
+        type: [String],
         default: "Write some tags about your lifestyle. p.e. Healthy, Sporty, Diet..."
     },
     avatar: {

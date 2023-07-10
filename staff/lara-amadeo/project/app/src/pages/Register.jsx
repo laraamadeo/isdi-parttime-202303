@@ -6,6 +6,7 @@ import Logo from "../library/components/Logo.jsx"
 import TextField from '../library/components/TextField.jsx'
 import Link from '../library/components/Link.jsx'
 import { registerUser } from '../logic/registerUser'
+import { context } from '../ui'
 
 
 export default function Register({ onRegisterClick }) {
@@ -24,11 +25,20 @@ export default function Register({ onRegisterClick }) {
 
             setTimeout(() => {
                 registerUser(name, username, email, password)
-                loaderOff()
-                onRegisterClick()
+                    .then(token => {
+                        context.token = token
+                        console.log(token)
+                        loaderOff()
+                        onRegisterClick()
+                    })
+                    .catch((error) => {
+                        loaderOff()
+                        console.log(error.message)
+                    })
             }, 1000)
 
         } catch (error) {
+            loaderOff()
             console.log(error.message)
         }
     }

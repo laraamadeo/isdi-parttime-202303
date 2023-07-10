@@ -1,10 +1,12 @@
-const extractToken = require('./extractToken')
-// const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 
 module.exports = function retrieveToken(req) {
-    // const token = extractToken(req)
+    const { authorization } = req.headers
+    const token = authorization.slice(7)
 
-    // const payload = jwt.verify(token, process.env.SECRET)
-    // const { sub: userId } = payload
-    // return userId
+    const payload = jwt.verify(token, process.env.JWT_SECRET)
+
+    const { sub: userId } = payload
+
+    return userId
 }

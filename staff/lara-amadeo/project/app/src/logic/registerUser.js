@@ -23,5 +23,7 @@ export const registerUser = (name, username, email, password) => {
     })
         .then(res => {
             if (res.status !== 201) return res.json().then(({ error }) => { throw new Error(error) })
+
+            return res.json()
         })
 }

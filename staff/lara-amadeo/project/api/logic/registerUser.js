@@ -13,6 +13,9 @@ module.exports = function registerUser(username, name, email, password) {
         email,
         password
     })
+        .then(user => {
+            return user.id
+        })
         .catch(error => {
             if (error.message.includes('E11000'))
                 throw new DuplicityError(`user with email ${email} already exists`)

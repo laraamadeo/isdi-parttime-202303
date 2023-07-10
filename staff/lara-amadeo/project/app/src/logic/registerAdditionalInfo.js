@@ -7,7 +7,7 @@
  * @param {string} repPassword user's password repetition
  */
 
-export const registerAdditionalInfo = (userId, description, tags, location, availability) => {
+export const registerAdditionalInfo = (token, description, tags, location, availability) => {
 
     // validateEmail(email)
     // validatePassword(password)
@@ -17,11 +17,12 @@ export const registerAdditionalInfo = (userId, description, tags, location, avai
     return fetch('http://localhost:1234/users/info', {
         method: 'POST',
         headers: {
-            'Content-type': 'application/json'
+            'Content-type': 'application/json',
+            'authorization': `Bearer ${token}`
         },
         body: JSON.stringify(info)
     })
         .then(res => {
-            if (res.status !== 201) return res.json().then(({ error }) => { throw new Error(error) })
+            if (res.status !== 204) return res.json().then(({ error }) => { throw new Error(error) })
         })
 }
