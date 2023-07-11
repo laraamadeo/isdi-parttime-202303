@@ -2,13 +2,13 @@ import Button from '../components/Button'
 import Link from '../components/Link'
 import './ButtonBar.css'
 
-export default function ButtonBar({ firstButton, firstButtonLabel, secondButtonlabel, secondButton, link, linkLabel, onLinkClick, onSecondButtonClick, onFirstButtonClick, ...props }) {
+export default function ButtonBar({ firstButton, secondButton, link }) {
 
     return <>
         <div className='buttonbar-container'>
-            <Button type={'primary'} size={'small'} label={'Finish'} onClick={onFirstButtonClick} />
-            {secondButton && <Button type={'primary'} size={'small'} label={'Finish'} onClick={onSecondButtonClick} />}
-            {link && <Link label={'Do it later'} state={'default'} onClick={onLinkClick} />}
+            {firstButton && <Button type={'primary'} size={'small'} label={firstButton.label} onClick={firstButton.onClick} />}
+            {secondButton && <Button type={'primary'} size={'small'} label={secondButton.label} onClick={secondButton.onClick} />}
+            {link && <Link label={link.label} state={'default'} onClick={link.onClick} />}
         </div>
 
     </>

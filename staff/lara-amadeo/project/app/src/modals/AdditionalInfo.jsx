@@ -17,7 +17,7 @@ export default function AdditionalInfo({ onSkipLink }) {
     const [availabilityDays, setAvailabilityDays] = useState([])
     const formRef = useRef(null)
 
-    const days = ['L', 'M', 'X', 'J', 'V', 'S', 'D']
+    const days = ['1', '2', '3', '4', '5', '6', '7']
 
     const onDayClick = (day) => {
         if (availabilityDays && availabilityDays.includes(day)) {
@@ -40,43 +40,43 @@ export default function AdditionalInfo({ onSkipLink }) {
         let availability = []
 
 
-        if (availabilityDays.includes('L')) {
+        if (availabilityDays.includes('1')) {
             const from = form.mondayFrom.value
             const to = form.mondayTo.value
             const a = { day: 'monday', time: `${from}-${to}` }
             availability.push(a)
         }
-        if (availabilityDays.includes('M')) {
+        if (availabilityDays.includes('2')) {
             const from = form.tuesdayFrom.value
             const to = form.tuesdayTo.value
             const a = { day: 'tuesday', time: `${from}-${to}` }
             availability.push(a)
         }
-        if (availabilityDays.includes('X')) {
+        if (availabilityDays.includes('3')) {
             const from = form.wednesdayFrom.value
             const to = form.wednesdayTo.value
             const a = { day: 'wednesday', time: `${from}-${to}` }
             availability.push(a)
         }
-        if (availabilityDays.includes('J')) {
+        if (availabilityDays.includes('4')) {
             const from = form.thursdayFrom.value
             const to = form.thursdayTo.value
             const a = { day: 'thursday', time: `${from}-${to}` }
             availability.push(a)
         }
-        if (availabilityDays.includes('V')) {
+        if (availabilityDays.includes('5')) {
             const from = form.fridayFrom.value
             const to = form.fridayTo.value
             const a = { day: 'friday', time: `${from}-${to}` }
             availability.push(a)
         }
-        if (availabilityDays.includes('S')) {
+        if (availabilityDays.includes('6')) {
             const from = form.saturdayFrom.value
             const to = form.saturdayTo.value
             const a = { day: 'saturday', time: `${from}-${to}` }
             availability.push(a)
         }
-        if (availabilityDays.includes('D')) {
+        if (availabilityDays.includes('7')) {
             const from = form.sundayFrom.value
             const to = form.sundayTo.value
             const a = { day: 'sunday', time: `${from}-${to}` }
@@ -133,26 +133,41 @@ export default function AdditionalInfo({ onSkipLink }) {
                         <p className='body-text grey-700'>Availability</p>
                         <div className='availability-dots-container'>
                             {days.map(day => {
+                                const dayText = `
+                                ${day === '1' ? 'M' : ''}
+                                ${day === '2' ? 'T' : ''}
+                                ${day === '3' ? 'W' : ''}
+                                ${day === '4' ? 'T' : ''}
+                                ${day === '5' ? 'F' : ''}
+                                ${day === '6' ? 'S' : ''}
+                                ${day === '7' ? 'S' : ''}`
                                 const state = `${availabilityDays && availabilityDays.includes(day) ? 'selected' : 'default'}`
-                                return <DaySelector key={day} label={day} state={state} onClick={() => onDayClick(day)} />
+                                return <DaySelector key={day} label={dayText} state={`${availabilityDays && availabilityDays.includes(day) ? 'selected' : 'default'}`} onClick={() => onDayClick(day)} />
                             })}
                         </div>
                     </div>
                     {availabilityDays.map(day => {
                         const daylabel = `
-                        ${day === 'L' ? 'Monday' : ''}
-                        ${day === 'M' ? 'Tuesday' : ''}
-                        ${day === 'X' ? 'Wednesday' : ''}
-                        ${day === 'J' ? 'Thursday' : ''}
-                        ${day === 'V' ? 'Friday' : ''}
-                        ${day === 'S' ? 'Saturday' : ''}
-                        ${day === 'D' ? 'Sunday' : ''}`
+                        ${day === '1' ? 'Monday' : ''}
+                        ${day === '2' ? 'Tuesday' : ''}
+                        ${day === '3' ? 'Wednesday' : ''}
+                        ${day === '4' ? 'Thursday' : ''}
+                        ${day === '5' ? 'Friday' : ''}
+                        ${day === '6' ? 'Saturday' : ''}
+                        ${day === '7' ? 'Sunday' : ''}`
                         return <TimeSelector dayLabel={daylabel} firstLabel={'From'} secondLabel={'To'} firstName={`${daylabel.toLowerCase().trim("")}From`} secondName={`${daylabel.toLowerCase().trim("")}To`} />
                     })}
                 </form>
 
                 {/* buttonbar */}
-                <ButtonBar firstButton={true} link={true} firstButtonLabel={'Finish'} linkLabel={'Do it later'} onFirstButtonClick={handleAdditionalInfo} onLinkClick={handleSkipInfo} />
+                {/* <ButtonBar firstButton={true} link={true} firstButtonLabel={'Finish'} linkLabel={'Do it later'} onFirstButtonClick={handleAdditionalInfo} onLinkClick={handleSkipInfo} /> */}
+                <ButtonBar firstButton={{
+                    label: 'Finish',
+                    onClick: handleAdditionalInfo
+                }} link={{
+                    label: 'Do it later',
+                    onClick: handleSkipInfo
+                }} />
             </div>
         </div>
     </>
