@@ -13,9 +13,7 @@ import { context } from './ui'
 function App() {
 
   const [loader, setLoader] = useState(false)
-  // const [view, setView] = useState(`${context.token ? 'home' : 'register'}`)
-  const [view, setView] = useState('additionalInfo')
-
+  const [view, setView] = useState(`${context.token ? 'home' : 'register'}`)
 
   const showLoader = () => {
     setLoader(true)
