@@ -10,6 +10,7 @@ import AdditionalInfo from './modals/AdditionalInfo'
 import Home from './pages/Home'
 import { context } from './ui'
 
+
 function App() {
 
   const [loader, setLoader] = useState(false)
